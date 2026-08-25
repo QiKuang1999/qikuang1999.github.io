@@ -190,8 +190,8 @@ h2{
   letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
 }
 .card h3{font-family:"Newsreader",serif;font-weight:500;font-size:1.28rem;line-height:1.25}
-.card p{font-size:.92rem;color:var(--slate);flex:1}
-.card .tools{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem}
+.card p{font-size:.92rem;color:var(--slate)}
+.card .tools{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;padding-top:.3rem}
 .chip{
   font-family:"IBM Plex Mono",monospace;font-size:.7rem;
   border:1px solid var(--hairline);border-radius:999px;
@@ -325,17 +325,20 @@ footer .section-inner{display:flex;justify-content:space-between;flex-wrap:wrap;
       <div class="t-item">
         <p class="t-when">2021 — 2024</p>
         <p class="t-role">MRes, Analysis and Policy in Economics (APE)</p>
-        <p class="t-org">Paris School of Economics · Development Economics track</p>
-        <p class="t-desc t-list">
+        <p class="t-org">Paris School of Economics · Paris</p>
+        <ul class="t-desc t-list">
           <li>Graduated with honours; French government Master's scholarship.</li>
           <li>Thesis: <em>Resilience in the Face of Climate Variability</em> — the effect of climate shocks on household decision-making in Bangladesh, using satellite data, spatial analysis, and econometrics.</li>
-        </p>
+        </ul>
       </div>
       <div class="t-item">
         <p class="t-when">2017 — 2021</p>
         <p class="t-role">Bachelor of Economics</p>
         <p class="t-org">Zhejiang University · Hangzhou, China</p>
-        <p class="t-desc">Major in Economics. Research assistance across climate and development economics, political economy, and urban and regional economics.</p>
+        <ul class="t-desc t-list">
+          <li>Major in Economics. </li>
+          <li>Research assistance across climate and development economics, political economy, and urban and regional economics.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -353,47 +356,68 @@ footer .section-inner{display:flex;justify-content:space-between;flex-wrap:wrap;
         <p>Decomposing the variance of teacher outcomes into country, school, and within-school components to show where differences actually sit — feeding policy analysis and ISCED-level content in the TALIS Principals Report. <a href="notes/variance-decomposition.html">Read the method note →</a></p>
         <div class="tools"><span class="chip">multilevel models</span><span class="chip">BRR weights</span><span class="chip">R</span></div>
       </article>
+
       <article class="card">
         <p class="card-tag">OECD · TALIS · Method</p>
         <h3>Lorenz curves for teacher experience</h3>
         <p>A new way to measure how experienced teachers are distributed across schools: weighted Lorenz curves and Gini coefficients built from TALIS data, published in a <em>Teaching in Focus</em> brief and now reused in other TALIS analyses. <a href="notes/lorenz-gini.html">Read the method note →</a></p>
         <div class="tools"><span class="chip">R</span><span class="chip">survey weights</span><span class="chip">inequality</span></div>
       </article>
+
       <article class="card">
         <p class="card-tag">OECD · INES</p>
         <h3>School-level data collection</h3>
         <p class="t-desc">Initiated the first INES data collection on primary and lower-secondary schools — building the case with existing open databases, securing agreement from country delegates, and designing the collection template. Produced comparable regional-level education statistics and introduced map-based visualisations to present them. Extended the project into a collaboration with the ETER database, covering questionnaire design, validation, and geospatial linkage. Results published in <em>Education at a Glance</em> 2024 (chapters D2 and D5) and 2025 (chapters B4 and D5).</p>
-        <div class="tools"><span class="chip">R</span><span class="chip">GIS</span><span class="chip">admin data</span></div>
+        <div class="tools"><span class="chip">R</span><span class="chip">GIS</span><span class="chip">regional statistics</span><span class="chip">data visualisation</span></div>     
       </article>
+
       <article class="card">
         <p class="card-tag">OECD · INES</p>
         <h3>Teachers: UOE PERS &amp; TEACH</h3>
         <p>Managing the personnel questionnaire and teacher module of the UOE data collection — cleaning, validating, and constructing internationally comparable indicators on the teaching workforce.</p>
         <div class="tools"><span class="chip">R</span><span class="chip">Stata</span><span class="chip">indicators</span></div>
       </article>
+
       <article class="card">
         <p class="card-tag">OECD · INES</p>
         <h3>Stata → R migration &amp; internal packages</h3>
         <p>Leading the migration of indicator production pipelines from Stata do-files to reproducible R workflows, with internal R packages that lock in methodological consistency across indicators.</p>
-        <div class="tools"><span class="chip">R packages</span><span class="chip">reproducibility</span></div>
+        <div class="tools"><span class="chip">R packages</span><span class="chip">reproducibility</span><span class="chip">vertion control</span></div>
       </article>
+
       <article class="card">
         <p class="card-tag">Master Thesis · PSE</p>
         <h3>Resilience in the face of climate variability</h3>
         <p>How climate shocks change household decision-making in Bangladesh — combining satellite rainfall data, spatial analysis, and panel econometrics on household surveys.</p>
-        <div class="tools"><span class="chip">satellite data</span><span class="chip">econometrics</span><span class="chip">QGIS</span></div>
+        <div class="tools"><span class="chip">satellite data</span><span class="chip">econometrics</span><span class="chip">QGIS</span><span class="chip">R</span><span class="chip">Stata</span><span class="chip">Python</span></div>
       </article>
+
       <article class="card">
         <p class="card-tag">Research · India</p>
         <h3>Environmental regulation &amp; text data</h3>
-        <p>Contributed to a project on environmental regulation in India applying machine-learning methods to large-scale legal and administrative text data.</p>
-        <div class="tools"><span class="chip">Python</span><span class="chip">ML / NLP</span></div>
+        <p>Research assistant on a project on the political economy of environmental regulation in India's sand mining sector. Processed and analysed over 18,000 web-scraped documents in R, and trained supervised machine-learning models to predict document quality. Used QGIS and Python to compute spatial metrics for mining sites — distances, areas, and other geographic parameters — to support the spatial analysis.</p>
+        <div class="tools"><span class="chip">R</span><span class="chip">Python</span><span class="chip">QGIS</span><span class="chip">machine learning</span><span class="chip">text data</span></div>
       </article>
+
       <article class="card">
         <p class="card-tag">Research · China</p>
-        <h3>Fiscal transfers &amp; field surveys</h3>
-        <p>Work on fiscal transfers and population agglomeration in China, and on the social integration of relocated populations based on original field surveys I helped design and run.</p>
-        <div class="tools"><span class="chip">survey design</span><span class="chip">fieldwork</span><span class="chip">Stata</span></div>
+        <h3>Fiscal transfers &amp; population agglomeration</h3>
+        <p>Research assistant on a project on how China's fiscal transfers shape population agglomeration and how far they sit from an efficient allocation. Reviewed the empirical literature and summarised the theoretical models. Collected, cleaned, and name-matched data for 672 cities and 2,863 districts in Stata, estimated TFP at several levels with alternative methods, and built charts of TFP against fiscal transfers across years and regions.</p>
+        <div class="tools"><span class="chip">Stata</span><span class="chip">panel data</span><span class="chip">TFP estimation</span><span class="chip">urban economics</span></div>
+      </article>
+
+      <article class="card">
+        <p class="card-tag">Research · China</p>
+        <h3>Social integration after relocation</h3>
+        <p>Led a research team studying the social integration of people relocated under poverty-alleviation policies in Huangping County, Guizhou. Designed a questionnaire capturing economic, social, and psychological effects of relocation, ran on-site surveys and interviews with 500+ relocated residents, officials, and factory managers, and analysed 478 valid responses to propose measures for integration and quality of life. The work won provincial and university prizes in the Challenge Cup competition and was co-authored into a paper in the <em>Journal of Guizhou University</em> (2021).</p>
+        <div class="tools"><span class="chip">survey design</span><span class="chip">fieldwork</span><span class="chip">interviews</span><span class="chip">descriptive analysis</span></div>
+      </article>
+
+      <article class="card">
+        <p class="card-tag">Research · China</p>
+        <h3>Mapping development zones</h3>
+        <p>Research assistant on a project on how development zones affect enterprise innovation in China. Mapped over 2,000 development zones in ArcGIS, extracted their geographic boundaries and attributes, and produced zonal statistics in QGIS to link zone characteristics to firm-level outcomes.</p>
+        <div class="tools"><span class="chip">ArcGIS</span><span class="chip">QGIS</span><span class="chip">spatial analysis</span></div>
       </article>
     </div>
   </div>
