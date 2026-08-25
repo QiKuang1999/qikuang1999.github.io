@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qi Kuang — Applied Economist &amp; Data Scientist</title>
+<meta name="description" content="Qi Kuang is an applied economist and data scientist at the OECD, working with applied econometrics, large-scale survey and administrative data, and geospatial analysis, with deep experience in international education statistics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Carlito:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F6F2;
+  --ink:#16283C;
+  --slate:#5B6B7C;
+  --teal:#1F7A72;
+  --amber:#C9922E;
+  --hairline:#DCD8CE;
+  --card:#FFFFFF;
+  --max:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Calibri,"Carlito",system-ui,sans-serif;
+  font-size:16.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--teal);color:#fff}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(247,246,242,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hairline);
+}
+.topbar-inner{
+  max-width:var(--max);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 1.5rem;
+}
+.wordmark{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.82rem;letter-spacing:.14em;
+  color:var(--ink);text-transform:uppercase;
+}
+.wordmark:hover{text-decoration:none;color:var(--teal)}
+.topnav{display:flex;gap:1.6rem}
+.topnav a{
+  font-size:.85rem;font-weight:400;color:var(--slate);
+}
+.topnav a:hover{color:var(--ink);text-decoration:none}
+@media(max-width:640px){.topnav{gap:1rem}.topnav a.hide-sm{display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:9.5rem 1.5rem 6rem;
+  border-bottom:1px solid var(--hairline);
+}
+.hero-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:2}
+.hero-eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);display:flex;align-items:center;gap:.6rem;
+  margin-bottom:1.4rem;
+}
+.hero-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--teal)}
+h1.hero-name{
+  font-family:"Newsreader",serif;
+  font-optical-sizing:auto;
+  font-weight:400;
+  font-size:clamp(2.9rem,7vw,4.6rem);
+  line-height:1.05;letter-spacing:-.015em;
+  max-width:16ch;
+}
+h1 .accent{font-style:italic;color:var(--teal)}
+.hero-sub{
+  margin-top:1.6rem;max-width:56ch;
+  font-size:1.06rem;color:var(--slate);
+}
+.hero-sub strong{color:var(--ink);font-weight:700}
+.hero-actions{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.72rem 1.35rem;border-radius:3px;
+  font-size:.9rem;font-weight:700;
+  transition:transform .15s ease, background .15s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--teal)}
+.btn-ghost{border:1px solid var(--hairline);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--ink)}
+.hero-meta{
+  margin-top:3rem;display:flex;flex-wrap:wrap;gap:2.2rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--slate);
+}
+.hero-meta span b{color:var(--ink);font-weight:400}
+
+/* contour signature */
+.contours{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  opacity:.5;
+}
+.contours svg{position:absolute;right:-8%;top:-10%;width:70%;min-width:640px;height:130%}
+.contours path{
+  fill:none;stroke:var(--ink);stroke-width:1;opacity:.16;
+  stroke-dasharray:2400;stroke-dashoffset:2400;
+  animation:draw 3.2s ease forwards;
+}
+.contours path:nth-child(2){animation-delay:.15s;stroke:var(--teal);opacity:.3}
+.contours path:nth-child(3){animation-delay:.3s}
+.contours path:nth-child(4){animation-delay:.45s;stroke:var(--teal);opacity:.22}
+.contours path:nth-child(5){animation-delay:.6s}
+.contours path:nth-child(6){animation-delay:.75s;opacity:.12}
+.contours path:nth-child(7){animation-delay:.9s;stroke:var(--amber);opacity:.35}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){
+  .contours path{animation:none;stroke-dashoffset:0}
+  .reveal{opacity:1 !important;transform:none !important}
+}
+@media(max-width:760px){.contours{opacity:.28}}
+
+/* ---------- sections ---------- */
+section{padding:5rem 1.5rem;border-bottom:1px solid var(--hairline)}
+.section-inner{max-width:var(--max);margin:0 auto}
+.sec-label{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);display:flex;align-items:center;gap:.6rem;
+  margin-bottom:1.2rem;
+}
+.sec-label::before{content:"";width:2rem;height:1px;background:var(--teal)}
+h2{
+  font-family:"Newsreader",serif;font-weight:400;
+  font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.15;
+  letter-spacing:-.01em;margin-bottom:1.8rem;max-width:24ch;
+}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:220px 1fr;gap:3.5rem;align-items:start}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:2rem}}
+.portrait{
+  width:200px;height:200px;border-radius:50%;object-fit:cover;
+  border:1px solid var(--hairline);
+  box-shadow:0 12px 32px rgba(22,40,60,.12);
+}
+.about-copy p{margin-bottom:1.1rem;max-width:64ch}
+.about-copy p:last-child{margin-bottom:0}
+
+/* experience timeline */
+.timeline{position:relative;margin-left:.4rem}
+.timeline::before{
+  content:"";position:absolute;left:0;top:.5rem;bottom:.5rem;
+  width:1px;background:var(--hairline);
+}
+.t-item{position:relative;padding:0 0 2.4rem 2.2rem}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{
+  content:"";position:absolute;left:-4px;top:.5rem;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--teal);
+}
+.t-when{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+  color:var(--amber);letter-spacing:.06em;
+}
+.t-role{font-weight:700;font-size:1.05rem;margin:.2rem 0 .1rem}
+.t-org{color:var(--slate);font-size:.92rem;margin-bottom:.5rem}
+.t-desc{max-width:62ch;color:var(--ink);font-size:.95rem}
+
+/* projects */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
+.card{
+  background:var(--card);border:1px solid var(--hairline);border-radius:6px;
+  padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(22,40,60,.09)}
+.card-tag{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
+}
+.card h3{font-family:"Newsreader",serif;font-weight:500;font-size:1.28rem;line-height:1.25}
+.card p{font-size:.92rem;color:var(--slate);flex:1}
+.card .tools{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem}
+.chip{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;
+  border:1px solid var(--hairline);border-radius:999px;
+  padding:.15rem .6rem;color:var(--slate);
+}
+
+/* toolkit */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.2rem}
+.tool-col h3{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  padding-bottom:.55rem;margin-bottom:.7rem;border-bottom:1px solid var(--hairline);
+}
+.tool-col ul{list-style:none}
+.tool-col li{padding:.28rem 0;color:var(--slate);font-size:.93rem}
+.tool-col li b{color:var(--ink);font-weight:400}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper);border-bottom:none}
+.contact .sec-label,.contact .sec-label::before{color:var(--amber);background:var(--amber)}
+.contact .sec-label::before{background:var(--amber)}
+.contact h2{color:var(--paper)}
+.contact p{max-width:56ch;color:#B9C4CF;margin-bottom:2rem}
+.contact-links{display:flex;flex-wrap:wrap;gap:.9rem}
+.contact .btn-primary{background:var(--paper);color:var(--ink)}
+.contact .btn-primary:hover{background:var(--amber);color:var(--ink)}
+.contact .btn-ghost{border-color:#3A4C60;color:var(--paper)}
+.contact .btn-ghost:hover{border-color:var(--paper)}
+
+footer{
+  background:var(--ink);color:#7E8EA0;
+  padding:1.6rem 1.5rem;font-size:.8rem;
+  font-family:"IBM Plex Mono",monospace;
+}
+footer .section-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="#top">Qi Kuang</a>
+    <nav class="topnav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects" class="hide-sm">Projects</a>
+      <a href="#notes" class="hide-sm">Notes</a>
+      <a href="#toolkit" class="hide-sm">Toolkit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="contours" aria-hidden="true">
+    <svg viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg">
+      <path d="M120,780 C60,640 140,560 240,540 C380,512 420,420 400,320 C382,230 440,150 560,130 C660,113 720,60 760,-20"/>
+      <path d="M180,820 C110,670 190,590 290,565 C430,530 470,440 450,340 C432,250 490,175 610,155 C700,140 760,90 800,20"/>
+      <path d="M250,860 C180,710 260,625 355,598 C490,560 530,465 512,368 C495,280 552,205 665,185 C745,171 795,125 830,60"/>
+      <path d="M60,720 C20,610 90,530 190,505 C320,472 360,390 345,295 C332,215 385,140 500,115 C595,94 650,45 690,-30"/>
+      <path d="M330,900 C260,760 335,665 425,635 C555,592 595,495 578,398 C562,312 618,238 725,218 C800,204 845,160 875,100"/>
+      <path d="M10,650 C-20,560 50,485 145,462 C270,432 305,355 292,268 C280,192 330,120 440,95 C530,74 585,28 622,-45"/>
+      <path d="M410,930 C345,800 415,705 500,672 C625,626 662,532 646,438 C631,355 685,283 785,262 C855,247 898,205 925,150"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Paris, France · Applied Economics · Data Science · OECD</p>
+    <h1 class="hero-name">Turning data into <span class="accent">evidence</span> for policy.</h1>
+    <p class="hero-sub">I'm <strong>Qi Kuang (邝琪)</strong>, an applied economist and data scientist at the <strong>OECD</strong>. I work with large administrative, survey, and geospatial data — building reproducible pipelines in R and Python, applied econometric analyses, and internationally comparable statistics, with deep experience in international education statistics.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="Qi_Kuang_CV_EN.pdf">Download CV (EN)</a>
+      <a class="btn btn-ghost" href="Qi_Kuang_CV_CN.pdf">简历（中文）</a>
+      <a class="btn btn-ghost" href="mailto:kuangqi1024@gmail.com">Email me</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>Focus</b> — inequality · social mobility · climate resilience</span>
+      <span><b>Tools</b> — R · Stata · Python · QGIS/ArcGIS</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="section-inner">
+    <p class="sec-label">Profile</p>
+    <div class="about-grid reveal">
+      <img class="portrait" src="images/Qi_KUANG1.png" alt="Portrait of Qi Kuang">
+      <div class="about-copy">
+        <h2>Economist by training, data engineer by practice.</h2>
+        <p>My research interests centre on inequality, social mobility, and resilience to climate and institutional shocks. As an applied economist, I combine administrative data, household surveys, and satellite and geospatial information to study how public policies and external shocks shape individual and institutional outcomes — and I build the data infrastructure that makes those analyses reproducible.</p>
+        <p>At the OECD I currently work on <a href="https://www.oecd.org/en/about/programmes/talis.html"><strong>TALIS</strong></a> (Teaching and Learning International Survey), using R, Python, and other software for data analysis and producing the statistical tables and charts behind the TALIS 2024 reports, while developing new analytical methods — including multilevel variance decomposition and weighted Lorenz curves. Before that I worked on <a href="https://www.oecd.org/en/publications/serials/education-at-a-glance_g1gha6b0.html"><em>Education at a Glance</em></a> and the <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=UNESCO_OECD_Eurostat_(UOE)_joint_data_collection_%E2%80%93_methodology">UOE data collection</a>, managing questionnaires, building R and Stata processing tools, and leading a school-level data project with geospatial analysis — experience that made international education statistics one of my strongest domains.</p>
+        <p>I hold a master's in economics (Analysis and Policy in Economics) from the <strong>Paris School of Economics</strong>, where I graduated with honours as a French government scholarship holder, and a bachelor's in economics from <strong>Zhejiang University</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="sec-label">Experience &amp; Education</p>
+    <h2>Where I've worked and studied.</h2>
+    <div class="timeline reveal">
+      <div class="t-item">
+        <p class="t-when">Mar 2026 — Present</p>
+        <p class="t-role">Data Specialist, <a href="https://www.oecd.org/en/about/programmes/talis.html">TALIS</a></p>
+        <p class="t-org">OECD · Directorate for Education and Skills · Paris</p>
+        <p class="t-desc">Using R, Python, and other software for data analysis and producing the statistical tables and charts behind three TALIS 2024 reports (Teacher Knowledge Survey, Principals Report, Environment &amp; Sustainability Report), working with survey data from 50+ education systems and BRR replicate weights. Coordinated results tables and code across chapters with standardised workflows. Ran multilevel variance decompositions of teacher outcomes for the Principals Report, and developed a new method — weighted Lorenz curves and Gini coefficients — to measure how experienced teachers are distributed across schools, now used in other TALIS analyses.</p>
+      </div>
+      <div class="t-item">
+        <p class="t-when">Sept 2023 — Feb 2026</p>
+        <p class="t-role">Data Scientist, INES · <em>Education at a Glance</em></p>
+        <p class="t-org">OECD · Directorate for Education and Skills · Paris</p>
+        <p class="t-desc">Managed the non-finance questionnaire in the UOE (UNESCO-OECD-Eurostat) data collection, validating data and liaising with national delegates and international organisations. Developed data-processing tools in R and Stata, upgraded pipelines and version control with GitLab, and led a school/institution-level data collection project with geospatial analysis in QGIS and Python, producing visualisations and a working paper.</p>
+      </div>
+      <div class="t-item">
+        <p class="t-when">2021 — 2024</p>
+        <p class="t-role">MRes, Analysis and Policy in Economics (APE)</p>
+        <p class="t-org">Paris School of Economics · Development Economics track</p>
+        <p class="t-desc">Graduated with honours; French government Master's scholarship. Thesis: <em>Resilience in the Face of Climate Variability</em> — the effect of climate shocks on household decision-making in Bangladesh, using satellite data, spatial analysis, and econometrics.</p>
+      </div>
+      <div class="t-item">
+        <p class="t-when">2017 — 2021</p>
+        <p class="t-role">Bachelor of Economics</p>
+        <p class="t-org">Zhejiang University · Hangzhou, China</p>
+        <p class="t-desc">Major in Economics. Research assistance across climate and development economics, political economy, and urban and regional economics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="sec-label">Selected Work</p>
+    <h2>Projects that shaped my toolkit.</h2>
+    <div class="cards reveal">
+      <article class="card">
+        <p class="card-tag">OECD · TALIS · Method</p>
+        <h3>Multilevel variance decomposition</h3>
+        <p>Decomposing the variance of teacher outcomes into country, school, and within-school components to show where differences actually sit — feeding policy analysis and ISCED-level content in the TALIS Principals Report. <a href="notes/variance-decomposition.html">Read the method note →</a></p>
+        <div class="tools"><span class="chip">multilevel models</span><span class="chip">BRR weights</span><span class="chip">R</span></div>
+      </article>
+      <article class="card">
+        <p class="card-tag">OECD · TALIS · Method</p>
+        <h3>Lorenz curves for teacher experience</h3>
+        <p>A new way to measure how experienced teachers are distributed across schools: weighted Lorenz curves and Gini coefficients built from TALIS data, published in a <em>Teaching in Focus</em> brief and now reused in other TALIS analyses. <a href="notes/lorenz-gini.html">Read the method note →</a></p>
+        <div class="tools"><span class="chip">R</span><span class="chip">survey weights</span><span class="chip">inequality</span></div>
+      </article>
+      <article class="card">
+        <p class="card-tag">OECD · INES</p>
+        <h3>School-level data collection</h3>
+        <p>Building disaggregated data on primary and lower-secondary schools, including a project extending the ETER database — from questionnaire design through validation and geospatial linkage.</p>
+        <div class="tools"><span class="chip">R</span><span class="chip">GIS</span><span class="chip">admin data</span></div>
+      </article>
+      <article class="card">
+        <p class="card-tag">OECD · INES</p>
+        <h3>Teachers: UOE PERS &amp; TEACH</h3>
+        <p>Managing the personnel questionnaire and teacher module of the UOE data collection — cleaning, validating, and constructing internationally comparable indicators on the teaching workforce.</p>
+        <div class="tools"><span class="chip">R</span><span class="chip">Stata</span><span class="chip">indicators</span></div>
+      </article>
+      <article class="card">
+        <p class="card-tag">OECD · Infrastructure</p>
+        <h3>Stata → R migration &amp; internal packages</h3>
+        <p>Leading the migration of indicator production pipelines from Stata do-files to reproducible R workflows, with internal R packages that lock in methodological consistency across indicators.</p>
+        <div class="tools"><span class="chip">R packages</span><span class="chip">reproducibility</span></div>
+      </article>
+      <article class="card">
+        <p class="card-tag">Master Thesis · PSE</p>
+        <h3>Resilience in the face of climate variability</h3>
+        <p>How climate shocks change household decision-making in Bangladesh — combining satellite rainfall data, spatial analysis, and panel econometrics on household surveys.</p>
+        <div class="tools"><span class="chip">satellite data</span><span class="chip">econometrics</span><span class="chip">QGIS</span></div>
+      </article>
+      <article class="card">
+        <p class="card-tag">Research · India</p>
+        <h3>Environmental regulation &amp; text data</h3>
+        <p>Contributed to a project on environmental regulation in India applying machine-learning methods to large-scale legal and administrative text data.</p>
+        <div class="tools"><span class="chip">Python</span><span class="chip">ML / NLP</span></div>
+      </article>
+      <article class="card">
+        <p class="card-tag">Research · China</p>
+        <h3>Fiscal transfers &amp; field surveys</h3>
+        <p>Work on fiscal transfers and population agglomeration in China, and on the social integration of relocated populations based on original field surveys I helped design and run.</p>
+        <div class="tools"><span class="chip">survey design</span><span class="chip">fieldwork</span><span class="chip">Stata</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="section-inner">
+    <p class="sec-label">Method Notes</p>
+    <h2>Writing about how the numbers are made.</h2>
+    <div class="cards reveal">
+      <article class="card">
+        <p class="card-tag">Note 01 · Multilevel models</p>
+        <h3>Country, school, or classroom? Variance decomposition of teacher outcomes</h3>
+        <p>Setting up a three-level decomposition with survey and replicate weights, interpreting intraclass correlations, and the issues that bite: unbalanced samples, weighting at each level, and what the shares do <em>not</em> tell you.</p>
+        <a href="notes/variance-decomposition.html">Read the note →</a>
+      </article>
+      <article class="card">
+        <p class="card-tag">Note 02 · Inequality measurement</p>
+        <h3>Measuring the distribution of experienced teachers with Lorenz curves</h3>
+        <p>Why a Gini coefficient works for teachers, how to build weighted Lorenz curves from complex survey data, and the pitfalls: choice of the ranking variable, small-school noise, and cross-country comparability.</p>
+        <a href="notes/lorenz-gini.html">Read the note →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLKIT ============ -->
+<section id="toolkit">
+  <div class="section-inner">
+    <p class="sec-label">Toolkit</p>
+    <h2>Methods and software.</h2>
+    <div class="tool-grid reveal">
+      <div class="tool-col">
+        <h3>Statistical computing</h3>
+        <ul>
+          <li><b>R</b> — pipelines, package development</li>
+          <li><b>Stata</b> — econometric analysis</li>
+          <li><b>Python</b> — ML, text data, mapping</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <h3>Geospatial</h3>
+        <ul>
+          <li><b>QGIS &amp; ArcGIS</b></li>
+          <li>Satellite &amp; remote-sensing data</li>
+          <li>Spatial econometrics</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <h3>Data &amp; methods</h3>
+        <ul>
+          <li>Administrative &amp; survey data</li>
+          <li>Indicator construction &amp; validation</li>
+          <li>Survey design &amp; field research</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <h3>Languages</h3>
+        <ul>
+          <li><b>Chinese</b> — native</li>
+          <li><b>English</b> — professional</li>
+          <li><b>French</b> — working</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="section-inner">
+    <p class="sec-label">Contact</p>
+    <h2>Let's talk about data, education, or your next project.</h2>
+    <p>I'm open to opportunities in applied economics, education data, and data science for policy. The fastest way to reach me is by email.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:kuangqi1024@gmail.com">kuangqi1024@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/qi-kuang-a545b2234/">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/QiKuang1999">GitHub</a>
+      <a class="btn btn-ghost" href="Qi_Kuang_CV_EN.pdf">CV (EN)</a>
+      <a class="btn btn-ghost" href="Qi_Kuang_CV_CN.pdf">简历（中文）</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="section-inner">
+    <span>© 2026 Qi Kuang</span>
+    <span>Paris · qikuang1999.github.io</span>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Measuring the distribution of experienced teachers with Lorenz curves — Qi Kuang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Carlito:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F7F6F2;--ink:#16283C;--slate:#5B6B7C;--teal:#1F7A72;--amber:#C9922E;--hairline:#DCD8CE;--max:720px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:Calibri,"Carlito",system-ui,sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+::selection{background:var(--teal);color:#fff}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(247,246,242,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline)}
+.topbar-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.5rem}
+.wordmark{font-family:"IBM Plex Mono",monospace;font-size:.82rem;letter-spacing:.14em;color:var(--ink);text-transform:uppercase}
+.wordmark:hover{color:var(--teal);text-decoration:none}
+.back{font-size:.85rem;font-weight:400;color:var(--slate)}
+article{max-width:var(--max);margin:0 auto;padding:9rem 1.5rem 5rem}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+.eyebrow::before{content:"";width:2rem;height:1px;background:var(--teal)}
+h1{font-family:"Newsreader",serif;font-weight:400;font-size:clamp(2rem,5vw,2.8rem);line-height:1.15;letter-spacing:-.01em;margin-bottom:.8rem}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--slate);margin-bottom:2.6rem}
+h2{font-family:"Newsreader",serif;font-weight:500;font-size:1.45rem;margin:2.4rem 0 .8rem}
+p{margin-bottom:1.1rem}
+em{font-style:italic}
+.callout{border-left:3px solid var(--amber);background:#fff;padding:1rem 1.3rem;margin:1.6rem 0;font-size:.95rem;border-radius:0 6px 6px 0}
+code{font-family:"IBM Plex Mono",monospace;font-size:.85em;background:#EDEAE2;padding:.1em .35em;border-radius:3px}
+.footerlink{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--hairline);font-size:.9rem}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="../index.html">Qi Kuang</a>
+    <a class="back" href="../index.html#notes">← Back to notes</a>
+  </div>
+</header>
+
+<article>
+  <p class="eyebrow">Method Note 02 · Inequality measurement</p>
+  <h1>Measuring the distribution of experienced teachers with Lorenz curves</h1>
+  <p class="meta">TALIS 2024 · weighted Lorenz curves · Gini coefficients · R</p>
+
+  <p>Averages hide sorting. Two education systems can have the same share of experienced teachers overall while distributing them completely differently: in one, every school gets its fair share; in the other, experienced teachers cluster in a handful of advantaged schools while others rely almost entirely on novices. For policy, that difference matters at least as much as the average.</p>
+
+  <p>To make this visible, I adapted a classic tool from the economics of inequality — the Lorenz curve and its summary statistic, the Gini coefficient — to the distribution of teaching experience across schools, using TALIS data.</p>
+
+  <h2>The idea</h2>
+  <p>Rank schools by the share of experienced teachers they employ, from lowest to highest. Then plot the cumulative share of <em>teachers</em> on the horizontal axis against the cumulative share of <em>experienced teachers</em> on the vertical axis. If experience were spread evenly, the curve would follow the 45-degree line; the more it sags below, the more concentrated experienced teachers are in a subset of schools. The Gini coefficient — twice the area between the curve and the diagonal — compresses this into a single number between 0 (perfect equality) and 1 (all experience in one school).</p>
+
+  <h2>Why weights make it non-trivial</h2>
+  <p>TALIS is a complex survey: schools and teachers are sampled with unequal probabilities, so every point on the curve has to be built from <em>weighted</em> cumulative shares. Ignoring weights would systematically distort the curve, because sampling rates differ across strata and school sizes. Standard errors add a second layer: with balanced repeated replication (BRR) weights, the Gini has to be re-estimated on each replicate to get a variance that respects the survey design — a naive analytic formula would understate uncertainty.</p>
+
+  <h2>Pitfalls worth knowing about</h2>
+  <p><strong>The ranking variable is a choice.</strong> "Experienced" needs a cutoff (e.g., more than five years of experience), and the Gini is not invariant to that choice. Reporting sensitivity to alternative cutoffs is part of honest presentation.</p>
+  <p><strong>Small schools are noisy.</strong> A school with four teachers can only have experience shares of 0, 25, 50, 75 or 100 percent. This lumpiness inflates measured inequality mechanically in systems with many small schools, and needs to be kept in mind when comparing countries with very different school-size distributions.</p>
+  <p><strong>Cross-country comparability.</strong> Differences in sampling designs, target populations, and ISCED coverage mean a Gini gap between two countries mixes real sorting differences with structural ones. The curves are most powerful when read alongside contextual information rather than as a pure ranking.</p>
+
+  <div class="callout">The method was developed for a <em>Teaching in Focus</em> brief on how experienced teachers are distributed across schools, and has since been reused in other TALIS analyses.</div>
+
+  <h2>Implementation</h2>
+  <p>Everything runs in R within the standardised TALIS workflow: weighted cumulative shares by school, Gini via the trapezoid rule on the empirical Lorenz curve, and BRR replication for standard errors, so results drop directly into the report production pipeline and remain reproducible.</p>
+
+  <p class="footerlink"><a href="variance-decomposition.html">← Previous note: variance decomposition of teacher outcomes</a></p>
+</article>
+</body>
+</html>
